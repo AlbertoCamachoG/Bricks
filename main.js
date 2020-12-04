@@ -243,21 +243,15 @@ class Player {
         this.vidas = 3;
     }
     ganar() {
-        juego.bola.svg.style.backgroundColor = "green";
         document.getElementById("bola").remove();
         document.getElementById("palo").remove();
         alert("ganas");
         clearInterval(interval);
-
-        var text = document.createElementNS('ttp://www.w3.org/2000/svg', 'text');
-        text.setAttributeNS(null, 'x', '10');
-        text.setAttributeNS(null, 'y', '20');
-        text.setAttributeNS(null, 'fill', '#000');
-        text.textContent = 'HAS GANADO';
-        juego.bola.svg.appendChild(text);
+        svg.style.backgroundImage = "url(ganar.jpg)";
     }
     perder() {
-        juego.bola.svg.style.backgroundColor = "red";
+        
+        
         document.getElementById("bola").remove();
         document.getElementById("palo").remove();
         for (var i = 0; i < arr.length; i++) {
@@ -267,12 +261,7 @@ class Player {
         alert("pierdes");
         clearInterval(interval);
 
-        var text = document.createElementNS('ttp://www.w3.org/2000/svg', 'text');
-        text.setAttribute('x', '10');
-        text.setAttribute('y', '20');
-        text.setAttribute('fill', '#000');
-        text.textContent = 'HAS PERDIDO';
-        document.getElementsByTagName("svg")[0].appendChild(text);
+        svg.style.backgroundImage = "url(perder.jpg)";
     }
 }
 //vista
