@@ -247,7 +247,7 @@ class Player {
         document.getElementById("palo").remove();
         alert("ganas");
         clearInterval(interval);
-        svg.style.backgroundImage = "url(ganar.jpg)";
+        svg.style.backgroundImage = "ganar.jpg";
     }
     perder() {
         
@@ -261,7 +261,7 @@ class Player {
         alert("pierdes");
         clearInterval(interval);
 
-        svg.style.backgroundImage = "url(perder.jpg)";
+        svg.style.backgroundImage = "perder.jpg";
     }
 }
 //vista
