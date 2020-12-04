@@ -1,4 +1,16 @@
 //modelo
+var svg = document.getElementsByTagName("svg")[0];
+var te = document.createElementNS("http://www.w3.org/2000/svg", "text");
+te.setAttributeNS(null, "x", 450);
+te.setAttributeNS(null, "y", 300);
+te.setAttributeNS(null, "id", "instr");
+te.setAttributeNS(null, "fill", "white");
+te.setAttributeNS(null, "width", 1000);
+te.setAttributeNS(null, "height", 100);
+svg.appendChild(te);
+var coso=document.getElementById("instr");
+coso.innerHTML="Esc: Pause |-| Space: Hit upwards |-| Arrows/(a,d): movement";
+
 var arr = [];
 var pausa=false;
 var interval;
@@ -59,7 +71,7 @@ class Bola {
         this.posX = this.svg.width.animVal.value / 2;
         if (this.posX == 0) this.posX = 600;
         this.posY = this.svg.height.animVal.value - 200;
-        this.incX = 1;
+        this.incX = 0.5;
         this.incY = -1;
         this.radio = r;
         this.puntos = Array(new Punto(this.posX, this.posY - this.radio), new Punto(this.posX + this.radio, this.posY), new Punto(this.posX, this.posY + this.radio), new Punto(this.posX - this.radio, this.posY));
@@ -276,7 +288,7 @@ function anima() {
 //controlador
 function createBricks(n, v) {
     let x = 0;
-    let y = 10;
+    let y = 20;
     for (var j = 0; j < v; j++) {
         for (var i = 0; i < n; i++) {
             arr.push(new Bricks(x, y, j + "" + i));
@@ -300,4 +312,5 @@ class Game{
         createBricks(bricksColumns, bricksRow);
     }
 }
-var juego=new Game(180,20,10,5,11);
+var juego;
+setTimeout(function () {coso.remove();juego=new Game(150,20,10,5,11);}, 3000);
